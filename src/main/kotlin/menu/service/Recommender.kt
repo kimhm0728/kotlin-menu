@@ -6,15 +6,12 @@ import menu.model.Coach
 
 class Recommender(private val coachs: List<Coach>) {
 
-    fun recommend(): Category {
+    fun recommendByWeek(category: Category) {
         val daySize = Day.getSize()
-        val category = Category()
 
         for (cnt in 1..daySize) {
             recommendByDay(category)
         }
-
-        return category
     }
 
     private fun recommendByDay(category: Category) {

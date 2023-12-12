@@ -3,6 +3,7 @@ package menu
 import menu.io.input.InputView
 import menu.model.Coach
 import menu.io.output.OutputView
+import menu.model.Category
 import menu.service.Recommender
 import menu.util.retryWhileNoException
 
@@ -35,8 +36,9 @@ class MenuController(
         }.toList()
 
     fun start() {
+        val category = Category()
         val recommender = Recommender(coachs)
-        val category = recommender.recommend()
+        recommender.recommendByWeek(category)
 
         outputView.printRecommendResult(category, coachs)
         outputView.printEndMessage()
