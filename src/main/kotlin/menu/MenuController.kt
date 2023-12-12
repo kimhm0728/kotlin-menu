@@ -12,14 +12,13 @@ class MenuController(
     private val outputView: OutputView
 ) {
 
-    private val coachNames: List<String>
     private val coachs: List<Coach>
 
     init {
         outputView.printStartMessage()
 
-        coachNames = inputCoachNames()
-        coachs = composeCoachsValue()
+        val coachNames = inputCoachNames()
+        coachs = setUpCoachs(coachNames)
     }
 
     private fun inputCoachNames(): List<String> =
@@ -28,12 +27,14 @@ class MenuController(
     private fun inputCoachHateMenus(name: String): List<String> =
         retryWhileNoException { inputView.inputCoachHateMenus(name) }
 
-    private fun composeCoachsValue() =
-        mutableListOf<Coach>().apply {
-            coachNames.forEach { name ->
-                add(Coach(name, inputCoachHateMenus(name)))
-            }
-        }.toList()
+    private fun setUpCoachs(coachNames: List<String>): List<Coach> {
+        val _coachs = mutableListOf<Coach>()
+        coachNames.forEach { name ->
+            _coachs.add(Coach(name, inputCoachHateMenus(name)))
+        }
+
+        return _coachs.toList()
+    }
 
     fun start() {
         val category = Category()
