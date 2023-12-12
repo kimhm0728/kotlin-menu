@@ -11,13 +11,17 @@ class Recommender(private val coachs: List<Coach>) {
         val category = Category()
 
         for (cnt in 1..daySize) {
-            val menus = CategoryRecommender.recommend(category)
-
-            coachs.forEach { coach ->
-                MenuRecommender.recommend(menus.getMenus(), coach)
-            }
+            recommendByDay(category)
         }
 
         return category
+    }
+
+    private fun recommendByDay(category: Category) {
+        val menus = CategoryRecommender.recommend(category)
+
+        coachs.forEach { coach ->
+            MenuRecommender.recommend(menus.getMenus(), coach)
+        }
     }
 }
