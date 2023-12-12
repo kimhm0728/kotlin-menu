@@ -21,6 +21,8 @@ class InputView {
         val input = Console.readLine()
         println()
 
+        if (validator.validateNoHateMenu(input)) return listOf()
+
         validator.validateCoachHateMenu(input)
         return input.convertStringWithComma()
     }

@@ -17,6 +17,8 @@ class InputValidator {
         }
     }
 
+    fun validateNoHateMenu(input: String) = input == ""
+
     fun validateCoachHateMenu(input: String) {
         with(input.convertStringWithComma()) {
             validateDuplication()
