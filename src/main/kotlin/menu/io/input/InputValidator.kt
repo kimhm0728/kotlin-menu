@@ -26,7 +26,6 @@ class InputValidator {
                 menu.validateMenu()
             }
         }
-
     }
 
     private fun String.validateNameLength() {
@@ -38,7 +37,7 @@ class InputValidator {
     }
 
     private fun String.validateKoreanName() {
-        require("가-힣".toRegex().matches(this)) { "한글로 된 이름을 입력해 주세요." }
+        require("^[가-힣]*$".toRegex().matches(this)) { "한글로 된 이름을 입력해 주세요." }
     }
 
     private fun List<String>.validateCoachSize() {
@@ -46,7 +45,7 @@ class InputValidator {
     }
 
     private fun List<String>.validateHateMenuSize() {
-        require(size >= 3) { "0~2개의 메뉴를 입력해 주세요." }
+        require(size < 3) { "0~2개의 메뉴를 입력해 주세요." }
     }
 
     private fun String.validateMenu() {
