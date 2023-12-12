@@ -5,10 +5,8 @@ import menu.service.MenuClassifier
 
 class InputValidator {
 
-    fun validateCoachNames(input: String?) {
-        input.validateNull()
-
-        with(input!!.convertStringWithComma()) {
+    fun validateCoachNames(input: String) {
+        with(input.convertStringWithComma()) {
             validateDuplication()
             validateCoachSize()
 
@@ -19,8 +17,8 @@ class InputValidator {
         }
     }
 
-    fun validateCoachHateMenu(input: String?) {
-        with(input!!.convertStringWithComma()) {
+    fun validateCoachHateMenu(input: String) {
+        with(input.convertStringWithComma()) {
             validateDuplication()
             validateHateMenuSize()
 
@@ -29,10 +27,6 @@ class InputValidator {
             }
         }
 
-    }
-
-    private fun String?.validateNull() {
-        require(this != null) { "유효한 값을 입력해 주세요." }
     }
 
     private fun String.validateNameLength() {
