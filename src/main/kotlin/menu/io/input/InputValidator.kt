@@ -1,6 +1,6 @@
 package menu.io.input
 
-import menu.io.util.convertStringWithComma
+import menu.util.convertStringWithComma
 import menu.service.MenuClassifier
 
 class InputValidator {

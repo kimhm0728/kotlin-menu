@@ -1,4 +1,4 @@
-package menu.io.util
+package menu.util
 
 inline fun <T> retryWhileNoException(action: () -> T): T {
     while (true) {

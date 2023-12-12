@@ -3,7 +3,7 @@ package menu.io
 import menu.io.input.InputView
 import menu.model.Coach
 import menu.io.output.OutputView
-import menu.io.util.retryWhileNoException
+import menu.util.retryWhileNoException
 
 class MenuController(
     private val inputView: InputView,

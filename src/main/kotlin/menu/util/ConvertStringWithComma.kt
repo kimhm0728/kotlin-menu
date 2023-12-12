@@ -1,3 +1,3 @@
-package menu.io.util
+package menu.util
 
 fun String.convertStringWithComma() = split(",")
