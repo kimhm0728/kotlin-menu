@@ -1,6 +1,6 @@
 package menu.service
 
-import menu.constants.*
+import menu.constants.menu.*
 
 object MenuClassifier {
 

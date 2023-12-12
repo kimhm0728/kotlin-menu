@@ -1,4 +1,4 @@
-package menu.constants
+package menu.constants.menu
 
 interface Menu {
 
