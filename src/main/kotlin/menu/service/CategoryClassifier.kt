@@ -12,6 +12,5 @@ object CategoryClassifier {
         5 to WesternMenu()
     )
 
-    fun getMenusByCategory(category: Int) =
-        categoryStore[category]!!.getMenus()
+    fun getMenuByCategory(category: Int) = categoryStore[category]!!
 }
