@@ -1,6 +1,5 @@
 package menu
 
-import menu.io.MenuController
 import menu.io.input.InputView
 import menu.io.output.OutputView
 

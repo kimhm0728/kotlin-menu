@@ -1,8 +1,9 @@
-package menu.io
+package menu
 
 import menu.io.input.InputView
 import menu.model.Coach
 import menu.io.output.OutputView
+import menu.service.Recommender
 import menu.util.retryWhileNoException
 
 class MenuController(
@@ -34,6 +35,7 @@ class MenuController(
         }.toList()
 
     fun start() {
-
+        val recommender = Recommender(coachs)
+        val category = recommender.recommend()
     }
 }
