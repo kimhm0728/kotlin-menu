@@ -11,8 +11,6 @@ class OutputView {
         lineBreak()
     }
 
-    private fun lineBreak() = println()
-
     fun printRecommendResult(category: Category, coachs: List<Coach>) {
         println("메뉴 추천 결과입니다.")
         println(Day)
@@ -23,4 +21,6 @@ class OutputView {
     }
 
     fun printEndMessage() = println("추천을 완료했습니다.")
+
+    private fun lineBreak() = println()
 }

@@ -3,6 +3,7 @@ package menu.model
 import menu.constants.StringConstants
 
 class Category {
+
     private val title = "카테고리"
     private val categoryStore = mutableListOf<String>()
     private val categoryCount = mutableMapOf<String, Int>()
