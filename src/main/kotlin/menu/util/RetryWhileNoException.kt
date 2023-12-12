@@ -5,7 +5,8 @@ inline fun <T> retryWhileNoException(action: () -> T): T {
         try {
             return action()
         } catch (e: IllegalArgumentException) {
-            println("[ERROR] $e")
+            println("[ERROR] ${e.localizedMessage}")
+            println()
         }
     }
 }
