@@ -1,18 +1,34 @@
 package menu.io.input
 
+import menu.io.util.convertStringWithComma
+import menu.service.MenuClassifier
+
 class InputValidator {
+
     fun validateCoachNames(input: String?) {
         input.validateNull()
 
-        with(input!!.convertStringList()) {
+        with(input!!.convertStringWithComma()) {
             validateDuplication()
             validateCoachSize()
 
-            this.forEach { name ->
+            forEach { name ->
                 name.validateNameLength()
                 name.validateKoreanName()
             }
         }
+    }
+
+    fun validateCoachHateMenu(input: String?) {
+        with(input!!.convertStringWithComma()) {
+            validateDuplication()
+            validateHateMenuSize()
+
+            forEach { menu ->
+                menu.validateMenu()
+            }
+        }
+
     }
 
     private fun String?.validateNull() {
@@ -24,7 +40,7 @@ class InputValidator {
     }
 
     private fun List<String>.validateDuplication() {
-        require(this.size == this.distinct().size) { "중복되지 않는 이름을 입력해 주세요." }
+        require(this.size == this.distinct().size) { "중복되지 않는 이름/메뉴를 입력해 주세요." }
     }
 
     private fun String.validateKoreanName() {
@@ -35,5 +51,11 @@ class InputValidator {
         require(size in 2..5) { "2~5개의 이름을 입력해 주세요." }
     }
 
-    private fun String.convertStringList() = this.split(",")
+    private fun List<String>.validateHateMenuSize() {
+        require(size >= 3) { "0~2개의 메뉴를 입력해 주세요." }
+    }
+
+    private fun String.validateMenu() {
+        require(MenuClassifier.containsMenu(this)) { "존재하는 메뉴를 입력해 주세요." }
+    }
 }
