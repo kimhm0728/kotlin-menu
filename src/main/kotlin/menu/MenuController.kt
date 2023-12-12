@@ -37,5 +37,8 @@ class MenuController(
     fun start() {
         val recommender = Recommender(coachs)
         val category = recommender.recommend()
+
+        outputView.printRecommendResult(category, coachs)
+        outputView.printEndMessage()
     }
 }
